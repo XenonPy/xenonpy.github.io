@@ -63,11 +63,12 @@ h1{
     position: relative;
     border:2px solid white;
     margin:2.5vw;
+    overflow-y: hidden;
 }
 
 .project img{
-    max-width:25vw;
-    width:25vw;
+    max-width:100%;
+    width:100%;
     max-height:15vw;
     height:15vw;
     filter: grayscale(32%) brightness(21%) saturate(132%);
@@ -85,6 +86,10 @@ h1{
     line-height: 100%;
     text-align: center;
     font-size:4vw;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #C612CF;
+    margin-top:15%;
 }
 
 .skills {
@@ -159,3 +164,4 @@ h4 {
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(to top, #C612CF 18%, #0300CF 100%);
   }
+
