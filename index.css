@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    background: linear-gradient(135deg, #1e1e2f, #3a3a5f);
+    color: white;
+}
+.sidebar {
+    height: 100vh;
+    width: 260px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #2e2e3e;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+}
+
+.sidebar img {
+    width: 90%;
+    margin-bottom: 20px;
+    border-radius: 10%;
+    filter: brightness(1.2);
+    transition: filter 0.3s ease;
+}
+
+.sidebar img:hover {
+    filter: brightness(2);
+}
+
+.sidebar h2 {
+    color: #a29bfe;
+}
+.content {
+    margin-left: 310px; 
+    padding: 20px;
+}
+.project {
+    background-color: #3e3e5e;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+.project h3 {
+    color: #81ecec;
+}
+
+.bold {
+    font-weight: 700;
+    color: #a29bfe;
+}
+
+a {
+    color: #a29bfe;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+    .content {
+        margin-left: 260px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        box-shadow: none;
+    }
+    .content {
+        margin-left: 0;
+        padding-top: 20px;
+    }
+}
