@@ -8,8 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
+    <div id="particles-js"></div>
     <div class="sidebar">
         <h2>Bio</h2>
         <img src="./images/profile.png" alt="Profile Picture">
@@ -29,8 +31,10 @@
         </p>
     </div>
 
+    <h1 class="txt">XenonPy's portfolio</h1>
+
     <div class="content">
-        <h1>My Projects</h1>
+        <h1>Curated Projects</h1>
         <div class="project">
             <h3>The Space</h3>
             <a href="https://thespace.bluspace.net">thespace.bluspace.net</a>
@@ -41,6 +45,53 @@
             <a href="https://github.com/mojidev-py/discmoji">github.com/mojidev-py/discmoji</a>
             <p>I made open-source contribuitions to Discmoji, a Python library for creating Discord bots.</p>
         </div>
+        <div class="project">
+            <h3>Guide</h3>
+            <a href="https://github.com/XenonPy/guide">github.com/XenonPy/guide</a>
+            <p>An ongoing project of compiling lots of coding knowledge into a single, simple guide consisting of only one file.</p>
+        </div>
     </div>
+    <div class="content">
+        <h1>Hardware and Software</h1>
+        <p>Here are some of the hardware and software I use on a daily basis:</p>
+        <h2>Laptop</h2>
+        <h3>Hardware</h3>
+        <ul>
+            <li>OS: MacOS</li>
+            <li>Model: MacBook Pro 2019, 16-inch</li>
+            <li>RAM: 64GB</li>
+            <li>Storage: 4TB SSD</li>
+            <li>Processor: 2.4GHz 8-core Intel i9</li>
+            <li>Graphics: Intel UHD Graphics 630 (integrated) and AMD Radeon Pro 5500M (PCIe)</li>
+        </ul>
+        <h3>Software</h3>
+        <ul>
+            <li>IDE: Visual Studio Code</li>
+            <li>Theme: Dracula at Night</li>
+            <li>CAD: FreeCAD and Onshape</li>
+            <li>Modeling: Blender</li>
+            <li>Editing: Kapwing/Final Cut Pro</li>
+            <li>Music Production: FL Studio/GarageBand</li>
+            <li>Game Engine: Unity</li>
+            <li>Web Browser: Chrome</li>
+        </ul>
+        <h2>DIY Server</h2>
+        <h3>Hardware</h3>
+        <ul>
+            <li>OS: Ubuntu Server</li>
+            <li>Model: Raspberry Pi 4</li>
+            <li>RAM: 4GB</li>
+        </ul>
+        <h3>Software</h3>
+        <ul>
+            <li>Text Editor: Nano (built-in)</li>
+            <li>Database: JSON file</li>
+        </ul>
+    </div>
+    <script>
+        particlesJS.load('particles-js', 'particlesjs-config.json', function() {
+            console.log('particles.js loaded - callback');
+        });
+    </script>
 </body>
 </html>
