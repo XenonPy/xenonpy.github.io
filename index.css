@@ -8,7 +8,26 @@ body, html{
     font-weight: 500;
     font-style: normal;
     background: linear-gradient(135deg, #1e1e2f, #3a3a5f);
+    background-size:cover;
     color: white;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e2f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6262a0;
+    border: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5a5a7f;
 }
 
 .txt {
@@ -53,7 +72,55 @@ body, html{
 .content {
     margin-left: 310px; 
     padding: 20px;
+    min-height:100vh;
 }
+
+.tool {
+    min-height:100vh;
+}
+
+.toolcontent {
+    width:90%;
+    margin:5%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-evenly;
+    text-align: center;
+}
+
+.palette {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #3e3e5e;
+    opacity:0.75;
+    margin-bottom:1vw;
+}
+
+.palette:hover {
+    opacity:1;
+}
+
+.color { 
+    width:6vw;
+    height:6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:2vw;
+}
+
+.black{
+    color:black;
+}
+
+.white{
+    color:white;
+}
+
 .project {
     background-color: #3e3e5e;
     padding: 15px;
@@ -73,6 +140,35 @@ body, html{
 
 a {
     color: #a29bfe;
+}
+
+.toolheader {
+    width: calc(100% - 40px);
+    margin: 20px;
+    padding: 10px;
+    background-color: #2e2e3e;
+    color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* Responsive Styles for .toolheader */
+@media (max-width: 768px) {
+    .toolheader {
+        width: calc(100% - 30px);
+        margin: 15px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .toolheader {
+        width: calc(100% - 20px);
+        margin: 10px;
+        font-size: 0.9em;
+    }
 }
 
 /* Responsive Styles */
