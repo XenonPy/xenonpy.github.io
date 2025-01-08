@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Generator | XenonPy's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body class="shapemakerbody">
+    <div class="shape-generator">
+        <h2>Ciphers</h2>
+        <br>
+        <form id="shape-form">
+            <label for="cipher-type">Cipher Type:</label>
+            <select id="cipher-type" name="cipher-type">
+                <option value="caesar">Caesar</option>
+                <option value="atbash">Atbash</option>
+            </select>
+            <br>
+            <label for="cipher">Cipher</label>
+            <input type="radio" id="cipher" name="cipher-action" value="cipher" checked>
+            <label for="decipher">Decipher</label>
+            <input type="radio" id="decipher" name="cipher-action" value="decipher">
+            <br>
+            <label for="cipher-offset">Shift (Caesar only):</label>
+            <input type="number" id="cipher-offset" name="cipher-offset" min="1" max="25" value="3">
+            <br>
+            <label for="cipher-text">Text:</label>
+            <input type="text" id="cipher-text" name="cipher-text" placeholder="Enter text...">
+            <br>
+            <button type="button" onclick="generateCipher()">Generate Cipher</button>
+        </form>
+        <h3>Output:</h3>
+        <code id="cipher-output"></code>
+        <a href="index.html">Back to Home</a>
+    </div>
+    <div class="about-tool">
+        <h1>How Ciphers Work</h1>
+        <p>Ciphers have a long history as the earliest form of encryption. They are simple algorithms dating back to 1900 BCE. However, interestingly, the very first ciphers were actually created to amuse readers in mystery and intrigue stories.</p>
+        <h2>Caesar Cipher</h2>
+        <p>The Caesar Cipher, also known as a shift cipher, is one of the simplest ciphers. It offers no practical security, especially given that there are only 27 shifts to try before someone can determine what the intended message is. It was used by emperor Julius Caesar during Roman times, he used a shift (offset) of 3. However, it's effectiveness during that time is unknown.</p>
+        <h2>Atbash Cipher</h2>
+        <p>The Atbash Cipher is a substitution cipher with a specific key where the letters of the alphabet are reversed. It was originally used to encode the Hebrew alphabet, but it can also be used to encode any alphabet (systems like Chinese characters will not work). </p>
+        <h2>Instructions</h2>
+        <ul>
+            <li>Choose a cipher type.</li>
+            <li>Choose whether to cipher or decipher.</li>
+            <li>Enter a shift (Caesar only) and text.</li>
+            <li>Click "Generate Cipher".</li>
+        </ul>
+        <h2>Try It</h2>
+        <ul>
+            <li>Decode this Caesar cipher with shift of 4: <kbd>Xyvxpi</kbd></li>
+            <li>Decode this Atbash cipher: <kbd>Svool Dliow</kbd></li>
+            <li>Decode this Caesar cipher of unknown shift: <kbd>Fvb Mvbuk Pa</kbd></li>
+        </ul>
+    </div>
+    <script>
+        function generateCipher() {
+            const cipherType = document.getElementById('cipher-type').value;
+            const cipherAction = document.querySelector('input[name="cipher-action"]:checked').value;
+            const cipherOffset = parseInt(document.getElementById('cipher-offset').value);
+            const cipherText = document.getElementById('cipher-text').value;
+            let result = '';
+    
+            if (cipherType === 'caesar') {
+                result = caesarCipher(cipherText, cipherOffset, cipherAction === 'decipher');
+            } else if (cipherType === 'atbash') {
+                result = atbashCipher(cipherText);
+            }
+    
+            document.getElementById('cipher-output').textContent = result;
+        }
+    
+        function caesarCipher(text, offset, decipher = false) {
+            if (decipher) {
+                offset = 26 - offset;
+            }
+            return text.split('').map(char => {
+                if (char.match(/[a-z]/i)) {
+                    const code = char.charCodeAt(0);
+                    const base = code >= 65 && code <= 90 ? 65 : 97;
+                    return String.fromCharCode(((code - base + offset) % 26) + base);
+                }
+                return char;
+            }).join('');
+        }
+    
+        function atbashCipher(text) {
+            return text.split('').map(char => {
+                if (char.match(/[a-z]/i)) {
+                    const code = char.charCodeAt(0);
+                    const base = code >= 65 && code <= 90 ? 65 : 97;
+                    return String.fromCharCode(base + 25 - (code - base));
+                }
+                return char;
+            }).join('');
+        }
+    </script>
+</body>
+</html>
