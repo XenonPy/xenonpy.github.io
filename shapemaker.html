@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Generator | XenonPy's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body class="shapemakerbody">
+    <div class="shape-generator">
+        <h2>Shape Generator</h2>
+        <form id="shape-form">
+            <label for="shape-type">Shape Type:</label>
+            <select id="shape-type" name="shape-type" onchange="toggleRectangleSliders()">
+                <option value="circle">Circle</option>
+                <option value="square">Square</option>
+            </select>
+            <br>
+            <label for="shape-size">Size (px):</label>
+            <input type="range" id="shape-size" name="shape-size" min="5" max="800">
+            <br>
+            <label for="shape-color">Color:</label>
+            <input type="color" id="shape-color" name="shape-color">
+            <br>
+            <label for="shape-border">Border (px):</label>
+            <input type="range" id="shape-border" name="shape-border" min="5" max="20">
+            <br>
+            <label for="shape-border">Border Radius (Square):</label>
+            <input type="range" id="shape-border-radius" name="shape-border-radius" min="5" max="60">
+            <br>
+            <label for="shape-border-color">Border Color:</label>
+            <input type="color" id="shape-border-color" name="shape-border-color">
+            <br>
+            <button type="button" onclick="generateShape()">Generate Shape</button>
+        </form>
+        <h3>Generated CSS:</h3>
+        <code id="css-output"></code>
+    </div>
+    <div class="rendering-area">
+        <div id="shape-output"></div>
+    </div>
+    
+    <script>
+        function generateShape() {
+            const shapeType = document.getElementById('shape-type').value;
+            const shapeSize = document.getElementById('shape-size').value;
+            const shapeColor = document.getElementById('shape-color').value;
+            const shapeBorder = document.getElementById('shape-border').value;
+            const shapeBorderRadius = document.getElementById('shape-border-radius').value;
+            const shapeBorderColor = document.getElementById('shape-border-color').value;
+    
+            let shapeCSS = '';
+            let shapeHTML = '';
+    
+            switch (shapeType) {
+                case 'circle':
+                    shapeCSS = `
+                        width: ${shapeSize}px;
+                        height: ${shapeSize}px;
+                        background-color: ${shapeColor};
+                        border: ${shapeBorder}px solid ${shapeBorderColor};
+                        border-radius: 50%;
+                    `;
+                    shapeHTML = `<div style="${shapeCSS}"></div>`;
+                    break;
+                case 'square':
+                    shapeCSS = `
+                        width: ${shapeSize}px;
+                        height: ${shapeSize}px;
+                        background-color: ${shapeColor};
+                        border: ${shapeBorder}px solid ${shapeBorderColor};
+                        border-radius: ${shapeBorderRadius}px;
+                    `;
+                    shapeHTML = `<div style="${shapeCSS}"></div>`;
+                    break;
+            }
+    
+            document.getElementById('shape-output').innerHTML = shapeHTML;
+            document.getElementById('css-output').textContent = shapeCSS.replace(/;\s*/g, ';\n');
+        }
+    </script>
+</body>
+</html>

@@ -11,6 +11,7 @@ body, html{
     background-size:cover;
     color: white;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -130,9 +131,33 @@ body, html{
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     z-index: 3;
 }
+
 .project h3 {
     color: #81ecec;
 }
+
+.footer {
+    width: 100vw;
+    max-width:100vw;
+    background-color: #2e2e3e;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    /* position: fixed;
+    bottom: 0;
+    left: 0; */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+    z-index: 3;
+}
+
+.footer a {
+    color: #a29bfe;
+    /* transition: color 0.3s ease; */
+}
+/* 
+.footer a:hover {
+    color: #81ecec;
+} */
 
 .bold {
     font-weight: 700;
@@ -191,6 +216,87 @@ a {
     }
     .content {
         margin-left: 0;
+        padding-top: 20px;
+    }
+}
+
+.shapemakerbody {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.shape-generator {
+    width: 20%;
+    padding: 20px;
+    background-color: #2e2e3e;
+    color: white;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    overflow-y: auto;
+}
+
+.rendering-area {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3e3e5e;
+}
+
+.shape-generator label {
+    display: block;
+    font-size:1.4em;
+    margin-bottom: 0.5vh;
+}
+
+.shape-generator input, .shape-generator select, .shape-generator button {
+    margin-bottom:3vh;
+    width:80%;
+    height: 40px;
+    background-color: #3e3e5e;
+    border: 2px solid #a29bfe;
+    border-radius: 7px;
+    color:white;
+}
+
+#shape-output {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+code {
+    background-color: rgb(40, 40, 40);
+    border-radius: 7px;
+    display:block;
+    padding:3%;
+}
+
+code:empty {
+    display: inline;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .shape-generator {
+        width: 30%;
+    }
+    .rendering-area {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .shape-generator {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+    }
+    .rendering-area {
+        width: 100%;
         padding-top: 20px;
     }
 }
