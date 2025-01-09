@@ -4,6 +4,12 @@
             "title":"Testing",
             "text":"Just testing. Suprised that the script is working, will add more posts soon.",
             "date":"January 8th, 2025"
+        },
+        {
+            "title":"Update + 1024-Bit Hashing",
+            "text":"So I've decided I'll try and post weekly, we'll see how that goes... Anyways, the topic of this post is 1024-bit hashing. In this post, I'll just talk about Skein-1024. It's general-purpose, which means it's not memory hard, but it works well and has a Python implementation available. It's based on the Threefish block cipher, so it's fairly fast. Overall, I think that Skein is a good choice, but I want to try out experimental alternatives like RadioGatun, Whirlpool or Fugue too.", 
+
+            "date":"January 9th, 2025"
         }
     ]
 }
