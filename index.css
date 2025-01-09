@@ -275,6 +275,14 @@ code {
     margin-bottom:2vh;
 }
 
+.blog {
+    display: flex;
+    width:80%;
+    flex-direction: column;
+    margin: 5%;
+    margin-left:10%;
+}
+
 code:empty {
     display: inline;
     padding: 0;

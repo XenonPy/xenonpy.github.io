@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XenonPy's Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div class="content blog">
+        <h1>XenonPy's Blog</h1>
+        <p>Welcome to my miniblog. Here, I'll occasionally add new posts about coding or anything on my mind. This blog (and the entire site) was written in only HTML, CSS, and JS as a challenge. The blog data is stored on a JSON file that can be easily updated, this is then parsed into the frontend with a simple script.</p>
+        <a href="index.html">Return to Home</a>
+        <br>
+    </div>
+    <script>
+        fetch('./blog.json')
+            .then(response => response.json())
+            .then(data => {
+            const contentDiv = document.querySelector('.content');
+            const blogSection = document.createElement('div');
+            blogSection.classList.add('blog-section');
+        
+            data.posts.reverse().forEach(post => {
+            const postDiv = document.createElement('div');
+            postDiv.classList.add('post');
+            const postTitle = document.createElement('h2');
+            postTitle.style.color = "#81ecec";
+            postTitle.textContent = post.title;
+            const postDate = document.createElement('p');
+            postDate.style.color = "#b2bec3";
+            postDate.style.fontSize = "0.9em";
+            postDate.textContent = post.date;
+            const postText = document.createElement('p');
+            postText.textContent = post.text;
+            postDiv.appendChild(postTitle);
+            postDiv.appendChild(postDate);
+            postDiv.appendChild(postText);
+            blogSection.appendChild(postDiv);
+            });
+        
+            contentDiv.appendChild(blogSection);
+            })
+            .catch(error => console.error('Error fetching blog posts:', error));
+    </script>
+</body>
+</html>
