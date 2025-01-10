@@ -229,6 +229,13 @@ a {
     overflow-y:hidden;
 }
 
+.colorsbody {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Source Code Pro', monospace;
+}
+
 .shape-generator {
     width: 20%;
     padding: 20px;
