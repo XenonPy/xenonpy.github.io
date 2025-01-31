@@ -372,3 +372,89 @@ input[type="radio"]:checked::after {
 .shapemakerbody ul {
     text-align: left;
 }
+
+.query-generator {
+    max-width: 100vw;
+    width:100vw;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #2e2e3e;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.query-generator h2 {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 700;
+    color: #a29bfe;
+    text-align: center;
+}
+
+.query-generator form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.query-generator label {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.query-generator select,
+.query-generator textarea {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 14px;
+    padding: 10px;
+    background-color: #3e3e5e;
+    border: 1px solid #a29bfe;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+.query-generator button {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.query-generator button:hover {
+    background-color: #0056b3;
+}
+
+.query-generator code {
+    display: block;
+    white-space: pre-wrap;
+    background-color: rgb(40, 40, 40);
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.query-generator a {
+    display: inline-block;
+    margin-top: 20px;
+    font-family: 'Source Code Pro', monospace;
+    color: #a29bfe;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.query-generator a:hover {
+    color: #81ecec;
+}
+
+.judgezero {
+    max-height: 100000000000000000vh !important;
+    overflow-y: scroll;
+}

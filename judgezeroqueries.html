@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judge0 Query Generator | XenonPy's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body class="shapemakerbody judgezero">
+    <div class="query-generator">
+        <h2>Judge0 Query Generator</h2>
+        <br>
+        <form id="query-form">
+            <label for="language">Programming Language:</label>
+            <select id="language" name="language">
+                <option value="45">Assembly (NASM 2.14.02)</option>
+                <option value="46">Bash (5.0.0)</option>
+                <option value="47">Basic (FBC 1.07.1)</option>
+                <option value="104">C (Clang 18.1.8)</option>
+                <option value="75">C (Clang 7.0.1)</option>
+                <option value="76">C++ (Clang 7.0.1)</option>
+                <option value="103">C (GCC 14.1.0)</option>
+                <option value="105">C++ (GCC 14.1.0)</option>
+                <option value="48">C (GCC 7.4.0)</option>
+                <option value="52">C++ (GCC 7.4.0)</option>
+                <option value="49">C (GCC 8.3.0)</option>
+                <option value="53">C++ (GCC 8.3.0)</option>
+                <option value="50">C (GCC 9.2.0)</option>
+                <option value="54">C++ (GCC 9.2.0)</option>
+                <option value="86">Clojure (1.10.1)</option>
+                <option value="51">C# (Mono 6.6.0.161)</option>
+                <option value="77">COBOL (GnuCOBOL 2.2)</option>
+                <option value="55">Common Lisp (SBCL 2.0.0)</option>
+                <option value="90">Dart (2.19.2)</option>
+                <option value="56">D (DMD 2.089.1)</option>
+                <option value="57">Elixir (1.9.4)</option>
+                <option value="58">Erlang (OTP 22.2)</option>
+                <option value="87">F# (.NET Core SDK 3.1.202)</option>
+                <option value="59">Fortran (GFortran 9.2.0)</option>
+                <option value="60">Go (1.13.5)</option>
+                <option value="95">Go (1.18.5)</option>
+                <option value="88">Groovy (3.0.3)</option>
+                <option value="61">Haskell (GHC 8.8.1)</option>
+                <option value="96">JavaFX (JDK 17.0.6, OpenJFX 22.0.2)</option>
+                <option value="91">Java (JDK 17.0.6)</option>
+                <option value="62">Java (OpenJDK 13.0.1)</option>
+                <option value="63">JavaScript (Node.js 12.14.0)</option>
+                <option value="93">JavaScript (Node.js 18.15.0)</option>
+                <option value="97">JavaScript (Node.js 20.17.0)</option>
+                <option value="102">JavaScript (Node.js 22.08.0)</option>
+                <option value="78">Kotlin (1.3.70)</option>
+                <option value="64">Lua (5.3.5)</option>
+                <option value="79">Objective-C (Clang 7.0.1)</option>
+                <option value="65">OCaml (4.09.0)</option>
+                <option value="66">Octave (5.1.0)</option>
+                <option value="67">Pascal (FPC 3.0.4)</option>
+                <option value="85">Perl (5.28.1)</option>
+                <option value="68">PHP (7.4.1)</option>
+                <option value="98">PHP (8.3.11)</option>
+                <option value="69">Prolog (GNU Prolog 1.4.5)</option>
+                <option value="70">Python (2.7.17)</option>
+                <option value="92">Python (3.11.2)</option>
+                <option value="100">Python (3.12.5)</option>
+                <option value="71">Python (3.8.1)</option>
+                <option value="80">R (4.0.0)</option>
+                <option value="99">R (4.4.1)</option>
+                <option value="72">Ruby (2.7.0)</option>
+                <option value="73">Rust (1.40.0)</option>
+                <option value="81">Scala (2.13.2)</option>
+                <option value="82">SQL (SQLite 3.27.2)</option>
+                <option value="83">Swift (5.2.3)</option>
+                <option value="74">TypeScript (3.7.4)</option>
+                <option value="94">TypeScript (5.0.3)</option>
+                <option value="101">TypeScript (5.6.2)</option>
+                <option value="84">Visual Basic.Net (vbnc 0.0.0.5943)</option>
+            </select>
+            <br>
+            <label for="source-code">Source Code:</label>
+            <textarea id="source-code" name="source-code" placeholder="Enter your code here..." rows="20" cols="50"></textarea>
+            <br>
+            <button type="button" onclick="generateQuery()">Generate Query</button>
+        </form>
+        <h3>Output:</h3>
+        <code id="query-output"></code>
+        <a href="index.html">Back to Home</a>
+    </div>
+    <script>
+        function generateQuery() {
+            const language = document.getElementById('language').value;
+            const sourceCode = document.getElementById('source-code').value;
+            const query = {
+                "language_id": language,
+                "source_code": sourceCode,
+                "stdin": "",
+                "expected_output": "",
+                "cpu_time_limit": "2",
+                "memory_limit": "128000"
+            };
+            document.getElementById('query-output').textContent = JSON.stringify(query, null, 2);
+        }
+    </script>
+</body>
+</html>
